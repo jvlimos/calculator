@@ -1,0 +1,23 @@
+* {
+  border: 1px red solid;
+}
+
+:root {
+	font-size: 62.5%;
+}
+
+* {
+  box-sizing: border-box;
+/*	margin: 0;
+	padding: 0; */
+}
+
+*::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+	margin: 0;
+	font-size: 1.6rem;
+	font-family: ;
+}
