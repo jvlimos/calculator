@@ -42,12 +42,13 @@ button {
 #screen {
 	height: 100px;
 	background-color: #fff5f0;
-	font-size: 7rem;
+	font-size: 6rem;
 	display: flex;
 	justify-content: end;
 	align-items: flex-end;
 	border: 2px solid black;
 	border-radius: 8px;
+	font-family: monospace;
 }
 
 #buttons {
