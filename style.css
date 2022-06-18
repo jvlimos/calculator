@@ -24,7 +24,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
-	background-color: #fff5f0;
+	background-color: #f7d3c1;
 }
 
 button {
@@ -35,13 +35,13 @@ button {
 	height: 520px;
 	width: 400px;
 	border: 14px rgb(189, 120, 60) solid;
-	border-radius: 5px;
+	border-radius: 7px;
 	background-color: black;
 }
 
 #screen {
 	height: 100px;
-	background-color: #fff5f0;
+	background-color: #F6EEE0;
 	font-size: 6rem;
 	display: flex;
 	justify-content: end;
@@ -68,6 +68,10 @@ button {
 
 .button:active {
 	filter: brightness(120%);
+}
+
+.oper:active {
+	filter: brightness(80%);
 }
 
 .oper {

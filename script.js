@@ -21,115 +21,194 @@ const clearBtn = document.getElementById('clear')
 	, scrn = document.getElementById('screen');
 
 // Number Input
-	scrn.textContent = '0';
+scrn.textContent = '0';
 
-	zeroBtn.addEventListener('click', () => {
+zeroBtn.addEventListener('click', () => {
+	if (scrn.textContent.length < 10) {
 		if (scrn.textContent == '0') return;
 		scrn.textContent += '0';
-	});
+	}
+});
 
-	oneBtn.addEventListener('click', () => {
+oneBtn.addEventListener('click', () => {
+	if (scrn.textContent.length < 10) {
 		if (scrn.textContent == '0') {
 			scrn.textContent = '1';
 		} else {
 			scrn.textContent += '1';
 		}
-	});
+	}
+});
 
-	twoBtn.addEventListener('click', () => {
+twoBtn.addEventListener('click', () => {
+	if (scrn.textContent.length < 10) {
 		if (scrn.textContent == '0') {
 			scrn.textContent = '2';
 		} else {
 			scrn.textContent += '2';
 		}
-	});
+	}
+});
 
-	threeBtn.addEventListener('click', () => {
+threeBtn.addEventListener('click', () => {
+	if (scrn.textContent.length < 10) {
 		if (scrn.textContent == '0') {
 			scrn.textContent = '3';
 		} else {
 			scrn.textContent += '3';
 		}
-	});
+	}
+});
 
-	fourBtn.addEventListener('click', () => {
+fourBtn.addEventListener('click', () => {
+	if (scrn.textContent.length < 10) {
 		if (scrn.textContent == '0') {
 			scrn.textContent = '4';
 		} else {
 			scrn.textContent += '4';
 		}
-	});
+	}
+});
 
-	fiveBtn.addEventListener('click', () => {
+fiveBtn.addEventListener('click', () => {
+	if (scrn.textContent.length < 10) {
 		if (scrn.textContent == '0') {
 			scrn.textContent = '5';
 		} else {
 			scrn.textContent += '5';
 		}
-	});
+	}
+});
 
-	sixBtn.addEventListener('click', () => {
+sixBtn.addEventListener('click', () => {
+	if (scrn.textContent.length < 10) {
 		if (scrn.textContent == '0') {
 			scrn.textContent = '6';
 		} else {
 			scrn.textContent += '6';
 		}
-	});
+	}
+});
 
-	sevenBtn.addEventListener('click', () => {
+sevenBtn.addEventListener('click', () => {
+	if (scrn.textContent.length < 10) {
 		if (scrn.textContent == '0') {
 			scrn.textContent = '7';
 		} else {
 			scrn.textContent += '7';
 		}
-	});
+	}
+});
 
-	eightBtn.addEventListener('click', () => {
+eightBtn.addEventListener('click', () => {
+	if (scrn.textContent.length < 10) {
 		if (scrn.textContent == '0') {
 			scrn.textContent = '8';
 		} else {
 			scrn.textContent += '8';
 		}
-	});
+	}
+});
 
-	nineBtn.addEventListener('click', () => {
+nineBtn.addEventListener('click', () => {
+	if (scrn.textContent.length < 10) {
 		if (scrn.textContent == '0') {
 			scrn.textContent = '9';
 		} else {
 			scrn.textContent += '9';
 		}
-	});
+	}
+});
 
-	// Decimal point
-	decimalPointBtn.addEventListener('click', () => {
-		if (scrn.textContent.includes('.')) return;
-		scrn.textContent += '.';
-	});
+// Decimal point
+decimalPointBtn.addEventListener('click', () => {
+	if (scrn.textContent.includes('.')) return;
+	scrn.textContent += '.';
+});
 
 // Clears scrn data
-	clearBtn.addEventListener('click', () => {
-		scrn.textContent = '0';
-	});
+let firstVar = '';
+let secondVar = '';
+let operation = '';
 
-	backspaceBtn.addEventListener('click', () => {
-		scrn.textContent = scrn.textContent.slice(0, scrn.textContent.length - 1);
-		if (scrn.textContent == '') scrn.textContent = 0;
-	});
+clearBtn.addEventListener('click', () => {
+	scrn.textContent = '0';
+	firstVar = '';
+	secondVar = '';
+	operation = '';
+});
+
+backspaceBtn.addEventListener('click', () => {
+	scrn.textContent = scrn.textContent.slice(0, scrn.textContent.length - 1);
+	if (scrn.textContent == '') scrn.textContent = 0;
+});
 
 // Operator Functions
-	const add = (a, b) => a + b;
-	const subtract = (a, b) => a - b;
-	const multiply = (a, b) => a * b;
-	const divide = (a, b) => {
-		if (b == 0) return undefined;
-		return a / b;
-	};
-	
-	const overHundred = (a) => a / 100;
-	const negOrPos = (a) => -(a);
+const add = (a, b) => a + b;
+const subtract = (a, b) => a - b;
+const multiply = (a, b) => a * b;
+const divide = (a, b) => {
+	if (b == 0) return undefined;
+	return a / b;
+};
 
-	const operate = (operator, a, b) => operator(a, b);
+const overHundred = (a) => a / 100;
+const negOrPos = (a) => -(a);
 
+const operate = (operator, a, b) => operator(a, b);
 
+// Operate
+addBtn.addEventListener('click', () => {
+	operation = add;
+	firstVar = scrn.textContent;
+});
 
-	
+subtractBtn.addEventListener('click', () => {
+	firstVar = scrn.textContent;
+	operation = subtract;
+	scrn.textContent = '0';
+});
+
+multiplyBtn.addEventListener('click', () => {
+	firstVar = scrn.textContent;
+	operation = multiply;
+	scrn.textContent = '0';
+});
+
+divideBtn.addEventListener('click', () => {
+	firstVar = scrn.textContent;
+	operation = divide;
+	scrn.textContent = '0';
+});
+
+overHundredBtn.addEventListener('click', () => {
+	firstVar = scrn.textContent;
+	scrn.textContent = overHundred(firstVar);
+});
+
+negOrPosBtn.addEventListener('click', () => {
+	firstVar = scrn.textContent;
+	scrn.textContent = negOrPos(firstVar);
+});
+
+// Function for Accurately Rounding Off
+// function round(num) {
+// 	var m = Number((Math.abs(num) * 100).toPrecision(15));
+// 	return Math.round(m) / 100 * Math.sign(num);
+// }
+function roundToTwo(num) {
+	return +(Math.round(num + "e+2")  + "e-2");
+	// return parseFloat(Math.round(num + 'e' + places) + 'e-' + places);
+}
+
+// Equals Function
+const equals = () => {
+	return roundToTwo(operate(operation, parseFloat(firstVar), parseFloat(secondVar)));
+};
+
+equalsBtn.addEventListener('click', () => {
+	if (!operation) return;
+	secondVar = scrn.textContent;
+	scrn.textContent = equals();
+	firstVar = scrn.textContent;
+});
